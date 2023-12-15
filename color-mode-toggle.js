@@ -5,7 +5,7 @@
  * Released on: November 28, 2023
 **/
 
-/* Modified for and by Super Creative Consulting */
+/* Modified for and by Super Creative Consulting - Color Mode Toggle */
 
 function colorModeToggle() {
   function attr(defaultVal, attrVal) {
@@ -38,19 +38,19 @@ function colorModeToggle() {
     return;
   }
 
-  let primaryColors = {};
-  let secondaryColors = {};
+  let lightColors = {};
+  let darkColors = {};
   cssVariables.split(",").forEach(function (item) {
-    let primaryValue = computed.getPropertyValue(`--color--${item}`);
-    let secondaryValue = computed.getPropertyValue(`--altColor--${item}`);
-    if (primaryValue.length) {
-      if (!secondaryValue.length) secondaryValue = primaryValue;
-      primaryColors[`--color--${item}`] = primaryValue;
-      secondaryColors[`--color--${item}`] = secondaryValue;
+    let lightValue = computed.getPropertyValue(`--color--${item}`);
+    let darkValue = computed.getPropertyValue(`--alt--${item}`);
+    if (lightValue.length) {
+      if (!darkValue.length) darkValue = lightValue;
+      lightColors[`--color--${item}`] = lightValue;
+      darkColors[`--color--${item}`] = darkValue;
     }
   });
 
-  if (!Object.keys(primaryColors).length) {
+  if (!Object.keys(lightColors).length) {
     console.warn("No variables found matching tr-color-vars attribute value");
     return;
   }
@@ -73,12 +73,12 @@ function colorModeToggle() {
     if (dark) {
       localStorage.setItem("dark-mode", "true");
       htmlElement.classList.add("dark-mode");
-      setColors(primaryColors, animate);
+      setColors(darkColors, animate);
       togglePressed = "true";
     } else {
       localStorage.setItem("dark-mode", "false");
       htmlElement.classList.remove("dark-mode");
-      setColors(secondaryColors, animate);
+      setColors(lightColors, animate);
       togglePressed = "false";
     }
     if (typeof toggleEl !== "undefined") {
