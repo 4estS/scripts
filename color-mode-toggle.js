@@ -5,7 +5,10 @@
  * Released on: November 28, 2023
 **/
 
-/* Modified for and by Super Creative Consulting - Color Mode Toggle */
+/* 
+ * Color Mode Toggle 1.0.1
+ * Modified for and by Super Creative Consulting
+ */
 
 function colorModeToggle() {
   function attr(defaultVal, attrVal) {
@@ -50,7 +53,7 @@ function colorModeToggle() {
     }
   });
 
-  if (!Object.keys(lightColors).length) {
+  if (!Object.keys(mainColors).length) {
     console.warn("No variables found matching tr-color-vars attribute value");
     return;
   }
