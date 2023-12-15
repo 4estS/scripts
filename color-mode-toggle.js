@@ -42,7 +42,7 @@ function colorModeToggle() {
   let altColors = {};
   cssVariables.split(",").forEach(function (item) {
     let mainValue = computed.getPropertyValue(`--color--${item}`);
-    let altValue = computed.getPropertyValue(`--dark--${item}`);
+    let altValue = computed.getPropertyValue(`--alt--${item}`);
     if (mainValue.length) {
       if (!altValue.length) altValue = mainValue;
       mainColors[`--color--${item}`] = mainValue;
