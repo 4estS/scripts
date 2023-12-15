@@ -43,10 +43,10 @@ function colorModeToggle() {
   cssVariables.split(",").forEach(function (item) {
     let mainColors = computed.getPropertyValue(`--color--${item}`);
     let altColors = computed.getPropertyValue(`--alt--${item}`);
-    if (mainColors.length) {
-      if (!altColors.length) altColors = mainColors;
-      mainColors[`--color--${item}`] = mainColors;
-      altColors[`--color--${item}`] = altColors;
+    if (mainValue.length) {
+      if (!altValue.length) altValue = mainValue;
+      mainColors[`--color--${item}`] = mainValue;
+      altColors[`--color--${item}`] = altValue;
     }
   });
 
