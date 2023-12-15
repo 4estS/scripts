@@ -44,7 +44,7 @@ function colorModeToggle() {
     let primaryValue = computed.getPropertyValue(`--color--${item}`);
     let secondaryValue = computed.getPropertyValue(`--altColor--${item}`);
     if (primaryValue.length) {
-      if (!secondaryValue.length) darkValue = primaryValue;
+      if (!secondaryValue.length) secondaryValue = primaryValue;
       primaryColors[`--color--${item}`] = primaryValue;
       secondaryColors[`--color--${item}`] = secondaryValue;
     }
