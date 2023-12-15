@@ -38,19 +38,19 @@ function colorModeToggle() {
     return;
   }
 
-  let lightColors = {};
-  let darkColors = {};
+  let mainColors = {};
+  let altColors = {};
   cssVariables.split(",").forEach(function (item) {
-    let lightValue = computed.getPropertyValue(`--color--${item}`);
-    let darkValue = computed.getPropertyValue(`--alt--${item}`);
-    if (lightValue.length) {
-      if (!darkValue.length) darkValue = lightValue;
-      lightColors[`--color--${item}`] = lightValue;
-      darkColors[`--color--${item}`] = darkValue;
+    let mainColors = computed.getPropertyValue(`--color--${item}`);
+    let altColors = computed.getPropertyValue(`--alt--${item}`);
+    if (mainColors.length) {
+      if (!altColors.length) altColors = mainColors;
+      mainColors[`--color--${item}`] = mainColors;
+      altColors[`--color--${item}`] = altColors;
     }
   });
 
-  if (!Object.keys(lightColors).length) {
+  if (!Object.keys(mainColors).length) {
     console.warn("No variables found matching tr-color-vars attribute value");
     return;
   }
@@ -73,12 +73,12 @@ function colorModeToggle() {
     if (dark) {
       localStorage.setItem("dark-mode", "true");
       htmlElement.classList.add("dark-mode");
-      setColors(darkColors, animate);
+      setColors(altColors, animate);
       togglePressed = "true";
     } else {
       localStorage.setItem("dark-mode", "false");
       htmlElement.classList.remove("dark-mode");
-      setColors(lightColors, animate);
+      setColors(mainColors, animate);
       togglePressed = "false";
     }
     if (typeof toggleEl !== "undefined") {
