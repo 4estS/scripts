@@ -53,7 +53,7 @@ function colorModeToggle() {
     }
   });
 
-  if (!Object.keys(lightColors).length) {
+  if (!Object.keys(mainColors).length) {
     console.warn("No variables found matching tr-color-vars attribute value");
     return;
   }
