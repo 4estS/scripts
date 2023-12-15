@@ -3,6 +3,7 @@
  * Copyright 2023 Timothy Ricks
  * Released under the MIT License
  * Released on: November 28, 2023
+ * https://github.com/timothydesign/scripts/blob/main/dark-mode-toggle.js
 **/
 
 /* 
